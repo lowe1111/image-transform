@@ -7,8 +7,8 @@ import (
 )
 
 func convertToGray(r uint32, g uint32, b uint32) color.Gray {
-	avg := 0.2125*float64(r) + 0.7154*float64(g) + 0.0721*float64(b)
-	return color.Gray{uint8(math.Ceil(avg))}
+	avg := 0.2126*float64(r) + 0.7152*float64(g) + 0.0722*float64(b)
+	return color.Gray{uint8(math.Round(avg))}
 }
 
 func ConverToGray(img image.Image) *image.Gray {

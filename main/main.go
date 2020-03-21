@@ -12,5 +12,5 @@ func main() {
 	filename := read.GetPath()
 	image, _ := read.ReadImage(filename)
 	greyImage := transform.ConverToGray(image)
-	write.WriteImage(greyImage, "results")
+	write.WriteImage(image, "results")
 }
