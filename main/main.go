@@ -10,6 +10,9 @@ import (
 func main() {
 	fmt.Print("Read your File...")
 	image, _ := read.GetImageFromPath()
-	greyImage := transform.ConverToGray(image)
-	write.WriteImage(greyImage, "results")
+	reversedImg := transform.ReverseImage(image)
+	greyImg := transform.ConverToGray(image)
+	write.WriteImage(image, "results", "result")
+	write.WriteImage(reversedImg, "results", "resultReversed")
+	write.WriteImage(greyImg, "results", "resultGrey")
 }
