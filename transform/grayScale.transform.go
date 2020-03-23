@@ -6,9 +6,9 @@ import (
 	"math"
 )
 
-func convertToGray(r uint32, g uint32, b uint32) color.Gray {
+func convertToGray(r uint32, g uint32, b uint32) color.Gray16 {
 	avg := 0.2126*float64(r) + 0.7152*float64(g) + 0.0722*float64(b)
-	return color.Gray{uint8(math.Round(avg))}
+	return color.Gray16{uint16(math.Round(avg))}
 }
 
 func ConverToGray(img image.Image) *image.Gray {
@@ -23,5 +23,5 @@ func ConverToGray(img image.Image) *image.Gray {
 			gray.Set(x, y, grayColor)
 		}
 	}
-	return gray;
+	return gray
 }

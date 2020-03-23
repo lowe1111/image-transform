@@ -8,7 +8,12 @@ import (
 	"github.com/sqweek/dialog"
 )
 
-func GetPath() string {
+func GetImageFromPath() (image.Image, error) {
+	filename := getPath()
+	return readImage(filename)
+}
+
+func getPath() string {
 	filename, err := dialog.File().Filter("PNG image file", "png").Load()
 	if err != nil {
 		panic(err)
@@ -16,7 +21,7 @@ func GetPath() string {
 	return filename
 }
 
-func ReadImage(filePath string) (image.Image, error) {
+func readImage(filePath string) (image.Image, error) {
 	f, err := os.Open(filePath)
 	if err != nil {
 		return nil, err

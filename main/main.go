@@ -9,8 +9,7 @@ import (
 
 func main() {
 	fmt.Print("Read your File...")
-	filename := read.GetPath()
-	image, _ := read.ReadImage(filename)
+	image, _ := read.GetImageFromPath()
 	greyImage := transform.ConverToGray(image)
-	write.WriteImage(image, "results")
+	write.WriteImage(greyImage, "results")
 }
